@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+    opencart:
+        container_name: opencart_dev
+        build: ./docker/opencart
+        ports:
+            - '80:80'
+            - '8081:443'
+            - '3306:3306'
+        restart: always
+
+    # nginx_proxy:
+    #     image: 'jc21/nginx-proxy-manager:latest'
+    #     restart: unless-stopped
+    #     ports:
+    #     - '80:80'
+    #     - '81:81'
+    #     - '443:443'
+    #     volumes:
+    #     - ./data:/data
+    #     - ./letsencrypt:/etc/letsencrypt
+
+    # filebrowser:
+    #     container_name: filebrowser
+    #     ports:
+    #         - 8081:8080
+    #     volumes:
+    #         - ./mnt/:/data
+    #     environment:
+    #         - FB_BASEURL=/f
+    #     image: hurlenko/filebrowser:v2.23.0
+    #     restart: always
